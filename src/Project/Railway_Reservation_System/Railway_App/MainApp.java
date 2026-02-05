@@ -109,7 +109,6 @@ public class MainApp {
 
         System.out.println(GREEN + " ✔ Registration Successful..." + RESET);
         System.out.println(GREEN + " ➤ Please login to Continue" + RESET);
-        //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
     }
 
 
