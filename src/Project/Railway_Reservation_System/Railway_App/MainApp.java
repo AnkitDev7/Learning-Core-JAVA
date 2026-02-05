@@ -1,5 +1,7 @@
 package Project.Railway_Reservation_System.Railway_App;
 
+import Project.BankingManagementSystem.Impl.BankService;
+import Project.Railway_Reservation_System.RailwayAll_Domain.TrainSchedule;
 import Project.Railway_Reservation_System.RailwayAll_Domain.User;
 import Project.Railway_Reservation_System.Railway_Implimentation.RailwayService;
 import Project.Railway_Reservation_System.Railway_Implimentation.RailwayServiceImpl;
@@ -69,56 +71,8 @@ public class MainApp {
         }
     }
 
-    // User Login Method
-    private static void UserLogin(Scanner sc, RailwayService service) {
-
-        System.out.println(
-                BG_GREEN + BLACK + "------------------------------Login Page----------------------------" + RESET
-        );
-
-        System.out.print(PURPLE+"Enter Your Username :-  "+RESET);
-        String username = sc.nextLine().trim();
-
-        System.out.print(PURPLE+"Enter Your  Password :- "+RESET);
-        String password = sc.nextLine().trim();
-
-        User user = UserRepository.findByUsername(username);
-
-        if (user != null && user.getPassword().equals(password)) {
-
-            System.out.println(GREEN+"✅ Login Successful!"+RESET);
-
-            System.out.println( GREEN +
-                    """
-                            1. Search Trains
-                            2. Book Ticket
-                            3. Cancel Ticket
-                            4. View My Booking
-                            5. Logout
-                            """
-             + RESET
-            );
-
-            System.out.print(PURPLE+"Enter the Your Choice :- "+RESET);
-            String choice = sc.nextLine();
-
-            switch (choice) {
-                // case "1" -> SearchTrain(sc, service);
-                // case "2" -> BookTitcket(sc);
-                default -> System.out.println(RED+"Invalid Choice"+RESET);
-            }
-
-        } else {
-            System.out.println(RED + " Invalid Username or Password" + RESET);
-        }
-    }
-
     // User Registation Method
-    private static void UserRegistation(
-            String Choice,
-            Scanner sc,
-            RailwayService service
-    ) {
+    private static void UserRegistation(String Choice, Scanner sc, RailwayService service) {
 
         System.out.println(PURPLE + "Your Choice :- " + Choice + RESET);
         System.out.println(
@@ -155,5 +109,82 @@ public class MainApp {
 
         System.out.println(GREEN + " ✔ Registration Successful..." + RESET);
         System.out.println(GREEN + " ➤ Please login to Continue" + RESET);
+        //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
     }
+
+
+    // User Login Method
+    private static void UserLogin(Scanner sc, RailwayService service) {
+
+        System.out.println(
+                BG_GREEN + BLACK + "------------------------------Login Page----------------------------" + RESET
+        );
+
+        System.out.print(PURPLE+"Enter Your Username :-  "+RESET);
+        String username = sc.nextLine().trim();
+
+        System.out.print(PURPLE+"Enter Your  Password :- "+RESET);
+        String password = sc.nextLine().trim();
+
+        User user = UserRepository.findByUsername(username);
+
+        if (user != null && user.getPassword().equals(password)) {
+
+            System.out.println(GREEN+"✅ Login Successful!"+RESET);
+            System.out.println(
+                    CYAN + "--------------------------------------------------------------------" + RESET
+            );
+
+            System.out.println(
+                    BG_GREEN + BLACK + "------------------------------Login Menu----------------------------" + RESET
+            );
+            System.out.println( GREEN +
+                    """
+                            1. Search Trains
+                            2. Book Ticket
+                            3. Cancel Ticket
+                            4. View My Booking
+                            5. Logout
+                            """
+                    + RESET
+            );
+            System.out.println(
+                    CYAN + "--------------------------------------------------------------------" + RESET
+            );
+            System.out.print(PURPLE+"Enter the Your Choice :- "+RESET);
+            String choice = sc.nextLine();
+
+            switch (choice) {
+                 case "1" -> SearchTrain(sc, service);
+                 case "2" -> BookTicket(sc , service);
+                 case "3" -> CancelTicket(sc , service);
+                 case "4" -> ViewOfBoking(sc , service);
+                default -> System.out.println(RED+"Invalid Choice"+RESET);
+            }
+
+        } else {
+            System.out.println(RED + " Invalid Username or Password" + RESET);
+        }
+    }
+
+    // Search Train Method
+    public static void SearchTrain(Scanner sc , RailwayService service){
+
+    }
+
+    // Book Ticket Method
+    public static void BookTicket(Scanner sc , RailwayService service){
+
+    }
+
+    // Cancel Ticket Method
+    public static void CancelTicket(Scanner sc , RailwayService service){
+
+    }
+
+    // View of My Booking Method
+    public static void ViewOfBoking(Scanner sc , RailwayService service){
+
+    }
+
 }
