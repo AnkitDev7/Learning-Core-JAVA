@@ -5,6 +5,11 @@ package Opps.encapsulatoin;
        private String color;
        private int speed;
 
+       /* Encapsulation ka matlab hai data (variables) aur methods ko ek class
+         ke andar rakhna aur data ko direct access se bachana. Iske liye variables ko
+         private banaya jata hai aur unhe access karne ke liye public getter-setter methods use hote hain
+        */
+
         public Bike(String brand , String color , int speed){
             this.brand = brand;
             this.color = color;
